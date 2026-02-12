@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ari - Billie Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Special+Elite&family=Playfair+Display:ital,wght@0,400;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos extra para el reproductor dinámico */
+        .mini-player {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 40px;
+            border: 2px solid var(--accent);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.5s ease;
+            box-shadow: 0 0 15px transparent;
+        }
+
+        /* Efecto de pulso cuando la música suena */
+        .mini-player.playing {
+            box-shadow: 0 0 20px var(--accent);
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1); box-shadow: 0 0 10px var(--accent); }
+            50% { transform: scale(1.02); box-shadow: 0 0 25px var(--accent); }
+            100% { transform: scale(1); box-shadow: 0 0 10px var(--accent); }
+        }
+
+        #track-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 120px;
+        }
+
+        #play-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        #play-btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body data-era="wwafa">
+
+    <div class="bg-overlay"></div>
+    <canvas id="fx-canvas"></canvas>
+
+    <div class="mini-player" id="player-container">
+        <span id="track-name">ILOMILO</span>
+        <button id="play-btn" onclick="toggleMusic()">▶</button>
+        <audio id="main-audio" loop preload="auto"></audio>
+    </div>
+
+    <main class="main-wrapper">
+        <header>
+            <p style="letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 10px;">FOR MY BEST FRIEND ARI</p>
+            <h1 id="main-title">WWAFA, <br> WDWG?</h1>
+        </header>
+        
+        <div class="letter-content">
+            <section class="era-section" data-era-name="wwafa">
+                <p>Vamos hacia un mundo donde todo es perfecto? O donde nosotros creemos que es perfecto porque cuando nos dormimos hacia donde vamos? A una realidad alternativa donde todo esta bien, sin problemas o preocupaciones? Pues</p>
+                <span class="song-phrase">WHEN THE PARTY'S OVER</span>
+                <p>La gente se va sin dejar aviso, todo esta hecho un desastre y solo estas tu limpiando y organizando todo pues siempre te quedas aunque la fiesta haya terminado, tu siempre estas ahí aunque todo esta en la mierda, pues desde que nos conocimos siempre me has ayudado a ser mejor cada dia y a superarme como persona y por eso</p>
+                <span class="song-phrase">I LOVE YOU</span>
+                <p>Como mi hermanita, pues eres una de las mejores cosas que me ha regalado la vida, eres increíble y realmente no me alcanzan las palabras para poder describir todo lo que te quiero y te amo ari...</p>
+                 <p>Gracias por llegar a mi vida como un faro que me guía en toda la oscuridad pues desde que llegaste a mi vida todo ha mejorado y cada segundo que paso contigo soy feliz gracias por ser esa hermanita que siempre pedí cuando era pequeño, y es que cuando llegaste a mi vida fui</p>
+            </section>
+
+            <section class="era-section" data-era-name="happier">
+                <span class="song-phrase">HAPPIER THAN EVER</span>
+                <p>Pues me sacaste de esa absurda tristeza que me estaba consumiendo, fuiste la única que me extendió la mano para ayudarme a salir de ese abismo tan profundo que llamamos depresión. Por eso es que cuando llegaste fui mas feliz que nunca, porque ambos nos ayudamos mutuamente, incluso nos hemos ayudado a mejorar en el canto KAJSKA eres increíble ari sin duda alguna eres mi hermana aunque no compartimos el mismo ADN y es que tienes</p>
+                <span class="song-phrase">YOUR POWER</span>
+                <p>Para hacer cambiar a la gente que es asombroso, mira ponte a pensar como era cada uno del grupo cuando comenzamos y miranos ahora todo ese cambio ha sido en parte gracias a ti, porque tu siempre nos haces mejorar como personas , y eso demuestra lo increíblemente asombrosa que eres y lo tan buena amiga que eres por que sin tu ninguno de nosotros seriamos quienes somos ahora sin ti y aun que estes</p>
+                <span class="song-phrase">GETTING OLDER</span>
+                <p>Siempre vas a formar parte de mi vida porque me niego a perder a alguien tan valiosa como tu, porque eres única ari...</p>
+                <p>No existen dos como tu y realmente eres increíble en todo lo que haces pues siempre buscas ser la mejor y eso es de admirar y de hecho por eso te admiro tanto por eso te considero mi hermana mayor KAJSKA, y aun que te pongas mas vieja cada dia quiero que sigas formando parte de mi vida por que si no la vida me va a </p>
+            </section>
+
+            <section class="era-section" data-era-name="blue">
+                <span class="song-phrase">HIT ME HARD AND SOFT</span>
+                <p>Porque si te llega a pasar algo me golpearía tan fuerte el corazón que simplemente no seria la misma persona porque me faltaría una parte importante de mi vida una parte de mi ser la parte suave, calmada, la que razona... porque sin ti todo el mundo se volvería</p>
+                <span class="song-phrase">BLUE</span>
+                <p>Porque seria todo tristeza, seria todo azul porque no pararía de llorar y nunca me perdonaría por dejar que algo te pasara pues eres un pilar en mi vida y aunque no te lo diga a diario te quiero gracias por haber llegado a mi vida porque eres</p>
+                <span class="song-phrase">THE GREATEST</span>
+                <p>Regalo que me dio la vida, gracias por todas las alegrías y los buenos y malos momentos que me has dado. Gracias por ser mi hermana de vida y sobre todo gracias por ser mi mejor amiga, te amo pendeja y recuerda aunque mi huesos se hagan cenizas siempre te voy a querer.</p>
+                <p class="firma">Att: Bianfa</p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+    const canvas = document.getElementById('fx-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let currentEra = 'wwafa';
+
+    // --- CONFIGURACIÓN DE AUDIO ---
+    const eraData = {
+        wwafa: { title: "WWAFA, <br> WDWG?", track: "ILOMILO", file: "MUSICA_WWAFA.mp3" },
+        happier: { title: "HAPPIER <br> THAN EVER", track: "HALLEY’s COMET", file: "MUSICA_HAPPIER.mp3" },
+        blue: { title: "HIT ME <br> HARD & SOFT", track: "CHIHIRO", file: "MUSICA_BLUE.mp3" }
+    };
+
+    const audio = document.getElementById('main-audio');
+    const trackNameLabel = document.getElementById('track-name');
+    const playBtn = document.getElementById('play-btn');
+    const playerContainer = document.getElementById('player-container');
+
+    // 1. Forzamos la carga inicial del primer tema
+    window.addEventListener('load', () => {
+        audio.src = eraData[currentEra].file;
+        audio.load();
+    });
+
+    // 2. Detector de errores de audio (Te avisará si el archivo no existe)
+    audio.onerror = function() {
+        console.error("Error: No se pudo cargar el archivo " + audio.src);
+        alert("¡Cuidado! No encuentro el archivo: " + audio.src.split('/').pop() + "\nRevisa que el nombre sea EXACTO y esté en la misma carpeta.");
+    };
+
+    // --- LÓGICA DE PARTÍCULAS (Sin cambios) ---
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() { this.init(); }
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = currentEra === 'blue' ? canvas.height + 20 : -20;
+            this.speed = Math.random() * 2 + 1;
+            this.size = Math.random() * 2 + 1;
+            this.opacity = Math.random() * 0.5 + 0.3;
+        }
+        draw() {
+            ctx.beginPath();
+            if (currentEra === 'wwafa') {
+                ctx.shadowBlur = 10; ctx.shadowColor = "#1fdf64";
+                ctx.fillStyle = "rgba(31, 223, 100, 0.6)";
+                ctx.roundRect(this.x, this.y, 2, 18, 5);
+                ctx.fill();
+            } else if (currentEra === 'happier') {
+                ctx.shadowBlur = 5; ctx.shadowColor = "#8b5e3c";
+                ctx.fillStyle = `rgba(139, 94, 60, ${this.opacity})`;
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                ctx.shadowBlur = 10; ctx.shadowColor = "#00d4ff";
+                ctx.strokeStyle = `rgba(0, 212, 255, ${this.opacity + 0.2})`;
+                ctx.lineWidth = 2;
+                ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+        update() {
+            if (currentEra === 'blue') this.y -= this.speed;
+            else this.y += this.speed;
+            if (this.y > canvas.height + 50 || this.y < -50) this.init();
+        }
+    }
+
+    for (let i = 0; i < 70; i++) particles.push(new Particle());
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // --- LÓGICA DE CAMBIO DE MÚSICA Y SCROLL ---
+    function changeSong(newFile, newName) {
+        if (audio.src.includes(newFile)) return;
+
+        let fadeOut = setInterval(() => {
+            if (audio.volume > 0.1) {
+                audio.volume -= 0.1;
+            } else {
+                clearInterval(fadeOut);
+                audio.src = newFile;
+                audio.load();
+                trackNameLabel.innerText = newName;
+                
+                if (playBtn.innerText === "||") {
+                    audio.play().then(() => {
+                        let fadeIn = setInterval(() => {
+                            if (audio.volume < 0.9) audio.volume += 0.1;
+                            else { audio.volume = 1; clearInterval(fadeIn); }
+                        }, 50);
+                    }).catch(e => console.log("Reproducción bloqueada hasta interacción."));
+                }
+            }
+        }, 50);
+    }
+
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.era-section');
+        const scrollCenter = window.innerHeight / 2;
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= scrollCenter && rect.bottom >= scrollCenter) {
+                const eraName = section.getAttribute('data-era-name');
+                if (currentEra !== eraName) {
+                    currentEra = eraName;
+                    const data = eraData[eraName];
+                    document.body.setAttribute('data-era', eraName);
+                    document.getElementById('main-title').innerHTML = data.title;
+                    changeSong(data.file, data.track);
+                }
+            }
+        });
+    });
+
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                playBtn.innerText = "||";
+                playerContainer.classList.add('playing');
+            }).catch(error => {
+                alert("El navegador bloqueó el audio. Intenta hacer clic de nuevo.");
+            });
+        } else {
+            audio.pause();
+            playBtn.innerText = "▶";
+            playerContainer.classList.remove('playing');
+        }
+    }
+</script>
+</body>
+</html>
